@@ -1,0 +1,40 @@
+{
+  "name": "steam-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for Steam Web API",
+  "main": "dist/index.js",
+  "bin": {
+    "steam-mcp": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prebuild": "npm run clean",
+    "test": "npm run build && node --test tests/*.test.mjs"
+  },
+  "author": "matheusslg",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "steam",
+    "valve",
+    "gaming",
+    "claude",
+    "anthropic"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "zod": "^3.24.0"
+  },
+  "private": true
+}
