@@ -13,6 +13,7 @@ export function registerSocialTools(server: McpServer): void {
   server.registerTool(
     "get_friends_list",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Friends List",
       description:
         "Get a player's Steam friends list with friendship dates. Requires public profile.",
@@ -66,6 +67,7 @@ export function registerSocialTools(server: McpServer): void {
   server.registerTool(
     "get_user_groups",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get User Groups",
       description:
         "Get a list of Steam group IDs a player belongs to. Requires public profile.",

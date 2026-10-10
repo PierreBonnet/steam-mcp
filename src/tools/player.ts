@@ -29,6 +29,7 @@ export function registerPlayerTools(server: McpServer): void {
   server.registerTool(
     "get_player_summary",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Player Summary",
       description:
         "Get a Steam player's profile info: display name, avatar, online status, currently playing game, account creation date, and more.",
@@ -88,6 +89,7 @@ export function registerPlayerTools(server: McpServer): void {
   server.registerTool(
     "get_steam_level",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Steam Level",
       description: "Get a player's Steam account level.",
       inputSchema: {
@@ -125,6 +127,7 @@ export function registerPlayerTools(server: McpServer): void {
   server.registerTool(
     "resolve_vanity_url",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Resolve Vanity URL",
       description:
         "Convert a Steam custom URL (vanity name) to a 64-bit Steam ID.",
@@ -173,6 +176,7 @@ export function registerPlayerTools(server: McpServer): void {
   server.registerTool(
     "get_player_bans",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Player Bans",
       description:
         "Check a player's ban status — VAC bans, game bans, community ban, trade ban.",
@@ -224,6 +228,7 @@ export function registerPlayerTools(server: McpServer): void {
   server.registerTool(
     "get_badges",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Badges",
       description:
         "Get a player's badge collection with XP breakdown, player level, and XP needed for next level.",

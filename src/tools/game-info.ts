@@ -18,6 +18,7 @@ export function registerGameInfoTools(server: McpServer): void {
   server.registerTool(
     "get_game_details",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Game Details",
       description:
         "Get detailed info about a Steam game: price, description, genres, Metacritic score, platforms, release date, and more.",
@@ -88,6 +89,7 @@ export function registerGameInfoTools(server: McpServer): void {
   server.registerTool(
     "get_game_news",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Game News",
       description: "Get recent news articles for a Steam game.",
       inputSchema: {
@@ -140,6 +142,7 @@ export function registerGameInfoTools(server: McpServer): void {
   server.registerTool(
     "get_player_count",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Current Player Count",
       description:
         "Get the number of players currently online for a specific Steam game.",
@@ -174,6 +177,7 @@ export function registerGameInfoTools(server: McpServer): void {
   server.registerTool(
     "get_game_reviews",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Game Reviews",
       description:
         "Get reviews for a Steam game with sentiment summary (score, positive/negative counts) and individual review text.",

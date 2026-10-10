@@ -11,6 +11,7 @@ export function registerDiscoveryTools(server: McpServer): void {
   server.registerTool(
     "search_apps",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Search Steam Apps",
       description:
         "Search the Steam store by game name. Returns matching apps with App IDs, prices, and Metascores.",
@@ -63,6 +64,7 @@ export function registerDiscoveryTools(server: McpServer): void {
   server.registerTool(
     "get_featured_games",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Featured Games",
       description:
         "Get Steam store featured categories: specials (sales), top sellers, new releases, and coming soon.",

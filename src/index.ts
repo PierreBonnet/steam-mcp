@@ -19,6 +19,10 @@ function createServer(): McpServer {
   const server = new McpServer({
     name: "steam-jeux",
     version: "1.0.0",
+  }, {
+    instructions: "Use these read-only tools to look up Steam games and player data. " +
+      "Use the configured STEAM_ID or ask for a Steam ID when a player is required. " +
+      "Never request API keys in chat; configure credentials in the server environment.",
   });
 
   registerPlayerTools(server);

@@ -24,6 +24,7 @@ export function registerLibraryTools(server: McpServer): void {
   server.registerTool(
     "get_owned_games",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Owned Games",
       description:
         "Get a player's full Steam game library with playtime stats. Can sort by playtime or recently played.",
@@ -99,6 +100,7 @@ export function registerLibraryTools(server: McpServer): void {
   server.registerTool(
     "get_recently_played_games",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Recently Played Games",
       description:
         "Get games a player has played in the last two weeks, with playtime breakdown.",
@@ -139,6 +141,7 @@ export function registerLibraryTools(server: McpServer): void {
   server.registerTool(
     "get_wishlist",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Wishlist",
       description:
         "Get a player's Steam wishlist. Depends on the user's privacy settings.",

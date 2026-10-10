@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "steam-mcp": {
+      "command": "node",
+      "args": [
+        "C:/mcp/steam-mcp/dist/index.js"
+      ],
+      "env": {
+        "STEAM_API_KEY": "REPLACE_LOCALLY",
+        "STEAM_ID": "REPLACE_WITH_YOUR_STEAM_ID"
+      }
+    }
+  }
+}

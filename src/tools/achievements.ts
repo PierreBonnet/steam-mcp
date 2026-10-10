@@ -18,6 +18,7 @@ export function registerAchievementTools(server: McpServer): void {
   server.registerTool(
     "get_player_achievements",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Player Achievements",
       description:
         "Get a player's achievement progress for a specific game, including which achievements are unlocked and when.",
@@ -86,6 +87,7 @@ export function registerAchievementTools(server: McpServer): void {
   server.registerTool(
     "get_global_achievement_percentages",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Global Achievement Percentages",
       description:
         "Get the global unlock percentage for each achievement in a game — how rare each achievement is across all players.",
@@ -123,6 +125,7 @@ export function registerAchievementTools(server: McpServer): void {
   server.registerTool(
     "get_game_schema",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get Game Schema",
       description:
         "Get the full list of stats and achievements for a game, including display names, descriptions, and icons.",
@@ -169,6 +172,7 @@ export function registerAchievementTools(server: McpServer): void {
   server.registerTool(
     "get_user_stats_for_game",
     {
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
       title: "Get User Stats for Game",
       description:
         "Get a player's individual game stats (kills, deaths, wins, etc.). Stats vary per game.",

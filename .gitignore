@@ -21,3 +21,8 @@ htmlcov/
 *credentials*.json
 drafts/
 data/
+
+# Local client configuration may contain secrets
+claude_desktop_config.json
+.mcp.json
+.tunnel-client/
