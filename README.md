@@ -1,5 +1,6 @@
 # steam-mcp
 
+[![Soutenir sur Ko-fi](https://img.shields.io/badge/Ko--fi-Soutenir%20le%20projet-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pierrobn)
 Community derivative of [matheusslg/steam-mcp](https://github.com/matheusslg/steam-mcp), prepared for public source distribution. The upstream MIT license and required attribution are retained. This repository starts with a fresh Git history.
 
 ## Install and run
@@ -91,3 +92,7 @@ Renseigne ta clé Steam Web API et ton Steam ID dans la configuration locale. St
 Essaie : « Demande la liste de mes jeux Steam. » Les résultats des outils et ressources peuvent contenir des données de ton compte ; le client qui les consulte les reçoit. Si le serveur ne démarre pas, vérifie les chemins absolus, l'installation des dépendances et les variables d'environnement. Si ChatGPT ne propose pas ton tunnel, vérifie ses droits et son rattachement à l'espace. Ne renseigne pas l'URL GitHub comme URL de serveur MCP.
 
 Références : [Claude local](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop), [Claude Code MCP](https://code.claude.com/docs/en/mcp), [connecteurs Claude distants](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp). Documentation vérifiée le 10 octobre 2026.
+
+## Soutenir le projet
+
+Si ce serveur MCP vous est utile, vous pouvez soutenir son développement et sa maintenance avec un don facultatif sur [Ko-fi](https://ko-fi.com/pierrobn). Merci pour votre soutien !
