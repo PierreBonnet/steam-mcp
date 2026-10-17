@@ -1,29 +1,54 @@
 # steam-mcp
 
 [![Soutenir sur Ko-fi](https://img.shields.io/badge/Ko--fi-Soutenir%20le%20projet-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/pierrobn)
-Community derivative of [matheusslg/steam-mcp](https://github.com/matheusslg/steam-mcp), prepared for public source distribution. The upstream MIT license and required attribution are retained. This repository starts with a fresh Git history.
 
-## Install and run
+Serveur MCP en lecture seule pour consulter les profils, bibliothèques, succès et informations de jeux Steam. Dérivé communautaire de [matheusslg/steam-mcp](https://github.com/matheusslg/steam-mcp), sous licence MIT ; les attributions d'origine sont conservées.
 
-Requires Node.js 20 or later.
+## Installation
+
+Prérequis : **Node.js 20 ou plus récent**, npm et une clé Steam Web API.
 
 ```sh
+git clone https://github.com/pierro-bn/steam-mcp.git
+cd steam-mcp
 npm ci
 npm run build
+```
+
+Configurez le client MCP pour lancer `node` avec le chemin absolu de `dist/index.js`. Le serveur communique sur **stdio** et attend les messages du client ; il ne fournit pas de page web.
+
+| Variable | Utilisation |
+| --- | --- |
+| `STEAM_API_KEY` | Clé API à définir dans l'environnement privé du serveur |
+| `STEAM_ID` | Steam ID 64 bits facultatif, utilisé quand l'appel ne fournit pas `steam_id` |
+
+## Fonctionnalités et limites
+
+- Bibliothèque et activité : `get_owned_games`, `get_recently_played_games`, `get_wishlist`.
+- Catalogue : `search_apps`, `get_featured_games`, `get_game_details`, `get_game_news`, `get_game_reviews`, `get_player_count`.
+- Profil, niveau, badges, amis, groupes et succès.
+
+`get_owned_games` retourne 50 jeux par défaut et au maximum 500 par appel, sans paramètre de pagination. Comparez `showing` à `total_games` : une réponse tronquée ne permet pas de conclure qu'un jeu absent n'est pas possédé. Les données accessibles dépendent aussi de la confidentialité du profil.
+
+Exemple : « Consulte mes jeux les plus joués et propose des jeux à découvrir. »
+
+## Développement
+
+```sh
 npm test
 ```
 
-Set `STEAM_API_KEY` in your MCP client environment. Optionally set `STEAM_ID` to your own Steam ID. Configure the client command as `node` with the absolute path to `dist/index.js` as its argument. Keep these values in your local client configuration.
+Cette commande reconstruit le serveur puis exécute les tests. Les tests ne valident pas l'accès à un compte Steam réel.
 
-## Privacy
+## Confidentialité
 
-No account configuration, OAuth sessions, personal exports, or local Git history are distributed. Examples and tests use fixtures. Never commit your local credentials or session files. Runtime tools can return information from the account you connect; review outputs before sharing them.
+Ne commitez pas vos clés, jetons, fichiers de session ou exports personnels. Les outils peuvent renvoyer des données du compte connecté au client MCP ; vérifiez ces résultats avant de les partager.
 
 ## Changes in this derivative
 
 Network errors omit URLs and untrusted HTTP status text. The clean/build command works on Windows, macOS and Linux. Dependencies were refreshed and regression tests cover credential-safe errors.
 
-Only GitHub source distribution is configured; this derivative is not published to npm or PyPI.
+Cette version est distribuée sous forme de sources sur GitHub, sans publication npm ou PyPI.
 
 ## Claude et ChatGPT
 
@@ -57,7 +82,7 @@ Installe d'abord le projet avec les commandes ci-dessus. Ouvre la configuration 
 }
 ```
 
-Un [fichier exemple](examples/claude_desktop_config.example.json) est fourni. Remplace les chemins génériques et les valeurs `REPLACE_…` uniquement dans ta configuration privée. Sous macOS/Linux, utilise le chemin absolu du dépôt et `.venv/bin/python` à la place de `.venv/Scripts/python.exe`. Pour Steam, utilise le chemin absolu de Node si Claude ne le trouve pas. Aucun terminal interactif ne doit être nécessaire au démarrage. Redémarre Claude après modification.
+Un [fichier exemple](examples/claude_desktop_config.example.json) est fourni. Remplace les chemins génériques et les valeurs `REPLACE_…` uniquement dans ta configuration privée. Sous macOS/Linux, adapte le chemin absolu vers `dist/index.js`. Utilise le chemin absolu de Node si le client ne le trouve pas. Aucun terminal interactif ne doit être nécessaire au démarrage. Redémarre Claude après modification.
 
 ### Claude Code
 
@@ -91,8 +116,9 @@ Renseigne ta clé Steam Web API et ton Steam ID dans la configuration locale. St
 
 Essaie : « Demande la liste de mes jeux Steam. » Les résultats des outils et ressources peuvent contenir des données de ton compte ; le client qui les consulte les reçoit. Si le serveur ne démarre pas, vérifie les chemins absolus, l'installation des dépendances et les variables d'environnement. Si ChatGPT ne propose pas ton tunnel, vérifie ses droits et son rattachement à l'espace. Ne renseigne pas l'URL GitHub comme URL de serveur MCP.
 
-Références : [Claude local](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop), [Claude Code MCP](https://code.claude.com/docs/en/mcp), [connecteurs Claude distants](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp). Documentation vérifiée le 10 octobre 2026.
+Références : [Claude local](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop), [Claude Code MCP](https://code.claude.com/docs/en/mcp), [connecteurs Claude distants](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp). Voir ces guides pour les réglages propres à chaque client.
 
 ## Soutenir le projet
 
 Si ce serveur MCP vous est utile, vous pouvez soutenir son développement et sa maintenance avec un don facultatif sur [Ko-fi](https://ko-fi.com/pierrobn). Merci pour votre soutien !
+
